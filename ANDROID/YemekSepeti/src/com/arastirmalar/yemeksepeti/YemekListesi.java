@@ -1,15 +1,19 @@
 package com.arastirmalar.yemeksepeti;
 
+import android.os.Build;
 import android.os.Bundle;
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.view.Menu;
 
+@TargetApi(Build.VERSION_CODES.HONEYCOMB)
 public class YemekListesi extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_yemek_listesi);
+		getActionBar().setTitle("Yemek Listesi");
 	}
 
 	@Override

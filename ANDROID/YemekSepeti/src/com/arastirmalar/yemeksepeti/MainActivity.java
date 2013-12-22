@@ -29,8 +29,6 @@ public class MainActivity extends Activity {
 	Button buttonGiris, buttonKayitOl;
 	EditText editTextKullaniciAdi, editTextSifre;
 	
-	Intent intent;
-	Bundle bundle;
 	private ProgressDialog pDialog;
 	
 	private static final String LOGIN_URL = "http://serkanayaz.com/webservice/login.php";
@@ -42,6 +40,7 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getActionBar().setTitle("Yemek Sepeti");
         componentDefine();
         
         buttonGiris.setOnClickListener(new OnClickListener() {
@@ -57,6 +56,15 @@ public class MainActivity extends Activity {
 		        intent.putExtras(bundle);
 		        startActivity(intent);*/
 				new AttemptLogin().execute();
+			}
+		});
+        
+        buttonKayitOl.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				startActivity(new Intent(MainActivity.this, KayitOl.class));
 			}
 		});
     }
@@ -75,9 +83,6 @@ public class MainActivity extends Activity {
     	
     	editTextKullaniciAdi=(EditText) findViewById(R.id.editTextKullaniciAdi);
     	editTextSifre=(EditText) findViewById(R.id.editTextSifre);
-		
-		intent = new Intent(this, YemekListesi.class);
-		bundle = new Bundle();
     }
     
     
