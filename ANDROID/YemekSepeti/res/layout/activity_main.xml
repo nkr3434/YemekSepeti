@@ -8,9 +8,63 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity" >
 
-    <TextView
+    <EditText
+        android:id="@+id/editTextKullaniciAdi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:layout_alignBaseline="@+id/textView1"
+        android:layout_alignBottom="@+id/textView1"
+        android:layout_toRightOf="@+id/textView1"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_below="@+id/editTextKullaniciAdi"
+        android:layout_marginTop="19dp"
+        android:text="Şifre:" />
+
+    <EditText
+        android:id="@+id/editTextSifre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView3"
+        android:layout_alignBottom="@+id/textView3"
+        android:layout_alignLeft="@+id/editTextKullaniciAdi"
+        android:layout_alignRight="@+id/editTextKullaniciAdi"
+        android:ems="10"
+        android:inputType="textPersonName|textWebPassword" />
+
+    <Button
+        android:id="@+id/buttonGiris"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView3"
+        android:layout_alignRight="@+id/editTextSifre"
+        android:layout_below="@+id/editTextSifre"
+        android:layout_marginTop="36dp"
+        android:text="Giriş" />
+
+    <Button
+        android:id="@+id/buttonKayitOl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/buttonGiris"
+        android:layout_alignRight="@+id/buttonGiris"
+        android:layout_below="@+id/buttonGiris"
+        android:text="Kayıt Ol" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="24dp"
+        android:text="Kullanıcı Adı:" />
 
 </RelativeLayout>
