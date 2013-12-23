@@ -11,18 +11,16 @@ if (!empty($_POST)) {
         die(json_encode($response));
     }
     
-    $query = " SELECT 1 FROM users WHERE username = :user";
+    $query = " SELECT 1 FROM company_users WHERE username = :user";
 	
     $query_params = array(':user' => $_POST['username']);
     
     try {
-	
         $stmt   = $db->prepare($query);
         $result = $stmt->execute($query_params);
     }
     catch (PDOException $ex) {
         die("Failed to run query: " . $ex->getMessage());
-
 		$response["success"] = 0;
 		$response["message"] = "Database hatası. Lütfen tekrar deneyin!";
 		die(json_encode($response));
@@ -30,17 +28,17 @@ if (!empty($_POST)) {
     
     $row = $stmt->fetch();
     if ($row) {
-        die("This username is already in use");
+        die("Üzgünüm bu kullanıcı adı zaten kullanılıyor");
 		$response["success"] = 0;
 		$response["message"] = "Üzgünüm bu kullanıcı adı zaten kullanılıyor";
 		die(json_encode($response));
     }
     
-    $query = "INSERT INTO users ( username, password ) VALUES ( :user, :pass ) ";
+    $query = "INSERT INTO company_users( username, password ) VALUES ( :user, :pass ) ";
     
     $query_params = array(
         ':username' => $_POST['username'],
-        ':password' => $_POST['password']
+        ':password' => md5($_POST['password'])
     );
     
     try {

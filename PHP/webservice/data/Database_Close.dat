@@ -1,8 +1,0 @@
-<?php
-//mysqli kapat
-if(isset($baglanti))
-{
-mysql_close($baglanti);
-}
-//-----------
-?>

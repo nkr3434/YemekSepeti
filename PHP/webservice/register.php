@@ -11,10 +11,9 @@ if (!empty($_POST)) {
         die(json_encode($response));
     }
     
-    $query = " SELECT 1 FROM users WHERE username = :user";
-    $query_params = array(
-        ':user' => $_POST['username']
-    );
+    $query = " SELECT 1 FROM company_users WHERE username = :user";
+    
+	$query_params = array(':user' => $_POST['username']);
     
     try {
         $stmt   = $db->prepare($query);
@@ -33,11 +32,11 @@ if (!empty($_POST)) {
         die(json_encode($response));
     }
     
-    $query = "INSERT INTO users ( username, password ) VALUES ( :user, :pass ) ";
+    $query = "INSERT INTO company_users ( username, password ) VALUES ( :user, :pass ) ";
     
     $query_params = array(
         ':user' => $_POST['username'],
-        ':pass' => $_POST['password']
+        ':pass' => md5($_POST['password'])
     );
     
     try {

@@ -3,7 +3,7 @@
 require("config.inc.php");
 
 if (!empty($_POST)) {
-	$query = "INSERT INTO comments ( username, title, message ) VALUES ( :user, :title, :message ) ";
+	$query = "INSERT INTO urun ( username, title, message ) VALUES ( :user, :title, :message ) ";
 
     $query_params = array(
         ':user' => $_POST['username'],

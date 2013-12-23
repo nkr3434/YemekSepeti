@@ -2,7 +2,7 @@
 
 require("config.inc.php");
 
-$query = "Select * FROM comments";
+$query = "Select * FROM urun";
 
 try {
     $stmt   = $db->prepare($query);
@@ -22,11 +22,12 @@ if ($rows) {
     $response["posts"]   = array();
     
     foreach ($rows as $row) {
-        $post             = array();
-		$post["post_id"]  = $row["post_id"];
-        $post["username"] = $row["username"];
-        $post["title"]    = $row["title"];
-        $post["message"]  = $row["message"];
+        $post = array();
+		$post["urun_id"] = $row["urun_id"];
+        $post["urun_name"] = $row["urun_name"];
+        $post["urun_company_id"] = $row["urun_company_id"];
+        $post["urun_fiyati"] = $row["urun_fiyati"];
+        $post["urun_durum"] = $row["urun_durum"];
         
         
         array_push($response["posts"], $post);

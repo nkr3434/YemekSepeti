@@ -3,15 +3,7 @@
 require("config.inc.php");
 
 if (!empty($_POST)) {
-    $query = " 
-            SELECT 
-                id, 
-                username, 
-                password
-            FROM users 
-            WHERE 
-                username = :username 
-        ";
+    $query = "SELECT * FROM company_users WHERE username = :username";
     
     $query_params = array(
         ':username' => $_POST['username']
@@ -32,7 +24,7 @@ if (!empty($_POST)) {
     
     $row = $stmt->fetch();
     if ($row) {
-        if ($_POST['password'] === $row['password']) {
+        if (md5($_POST['password']) === md5($row['password'])) {
             $login_ok = true;
         }
     }
