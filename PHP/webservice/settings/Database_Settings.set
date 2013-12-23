@@ -1,0 +1,7 @@
+<?php
+//Veritabani Sabitleri
+define("db_server","");
+define("db_user","");
+define("db_pass","");
+define("db_name","");
+?>
